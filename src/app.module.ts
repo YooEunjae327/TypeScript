@@ -6,6 +6,7 @@ import { MySqlConfigService } from './database/database.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
+import { TokenModule } from './token/token.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { UsersModule } from './users/users.module';
       inject: [MySqlConfigService],
     }),
     UsersModule,
+    TokenModule,
   ],
   controllers: [AppController],
   providers: [AppService],
