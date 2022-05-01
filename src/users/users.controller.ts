@@ -14,4 +14,6 @@ export class UsersController {
 
     return Response.success('회원가입 성공');
   }
+
+  @Post('/login')
 }
