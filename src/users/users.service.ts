@@ -34,7 +34,7 @@ export class UserService {
 
   async test(): Promise<any> {
     const user: User | undefined = await this.userRepository.findByUserId(
-      '1234',
+      'testing',
     );
 
     console.log(user);
