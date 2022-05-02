@@ -14,7 +14,6 @@ import {
   JWT_ISSUER,
   JWT_REFRESH_SUBJECT,
 } from 'src/share/constants/token.constant';
-import { time } from 'console';
 
 @Injectable()
 export class TokenService {
@@ -31,7 +30,8 @@ export class TokenService {
     const paylaod: ITokenPayload = this.makePayload(id);
 
     const option: JwtSignOptions = {
-      expiresIn: this.configService.get('JWT_ACCESS_EXPIRE'),
+      // expiresIn: this.configService.get('JWT_ACCESS_EXPIRE'),
+      expiresIn: '60s',
       issuer: JWT_ISSUER,
       subject: JWT_ACCESS_SUBJECT,
     };
@@ -43,7 +43,8 @@ export class TokenService {
     const paylaod: ITokenPayload = this.makePayload(id);
 
     const option: JwtSignOptions = {
-      expiresIn: this.configService.get('JWT_REFRESH_EXPIRE'),
+      // expiresIn: this.configService.get('JWT_REFRESH_EXPIRE'),
+      expiresIn: '60s',
       issuer: JWT_ISSUER,
       subject: JWT_REFRESH_SUBJECT,
     };
