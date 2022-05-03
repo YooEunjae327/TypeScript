@@ -10,7 +10,6 @@ import { ILoginResponse } from './responses/login.response';
 @Injectable()
 export class UserService {
   constructor(
-    @InjectRepository(User)
     private readonly userRepository: UserRepository,
     private readonly tokenService: TokenService,
   ) {}
@@ -38,6 +37,5 @@ export class UserService {
     );
 
     console.log(user);
-    return user;
   }
 }

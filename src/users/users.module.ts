@@ -7,7 +7,11 @@ import { UsersController } from './users.controller';
 import { UserService } from './users.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User]), TokenModule],
+  imports: [
+    UserRepository,
+    TypeOrmModule.forFeature([UserRepository]),
+    TokenModule,
+  ],
   controllers: [UsersController],
   providers: [UserService],
   exports: [UserService],
