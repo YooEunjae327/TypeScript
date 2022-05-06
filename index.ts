@@ -32,3 +32,5 @@ const c: b = {
 
 // let hello = 'kim'
 // let age = 12
+
+console.log('sry')
