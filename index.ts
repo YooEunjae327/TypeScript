@@ -34,3 +34,4 @@ const c: b = {
 // let age = 12
 
 console.log('sry')
+console.log('sry2')
