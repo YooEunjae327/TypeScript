@@ -8,12 +8,13 @@ import {
 } from '@nestjs/common';
 import { JwtService, JwtSignOptions } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { ITokenPayload } from 'src/share/interface/IToken';
+import { IToken, ITokenPayload } from 'src/share/interface/IToken';
 import {
   JWT_ACCESS_SUBJECT,
   JWT_ISSUER,
   JWT_REFRESH_SUBJECT,
 } from 'src/share/constants/token.constant';
+import RemakeDto from './dto/remake.dto';
 
 @Injectable()
 export class TokenService {
@@ -44,7 +45,7 @@ export class TokenService {
 
     const option: JwtSignOptions = {
       // expiresIn: this.configService.get('JWT_REFRESH_EXPIRE'),
-      expiresIn: '60s',
+      expiresIn: '10s',
       issuer: JWT_ISSUER,
       subject: JWT_REFRESH_SUBJECT,
     };
@@ -52,7 +53,17 @@ export class TokenService {
     return this.jwtService.sign(paylaod, option);
   }
 
-  async verifyToken(token: string) {
+  public async remakeAccessToken(dto: RemakeDto): Promise<string> {
+    const { iss, sub, id }: IToken = await this.verifyToken(dto.refreshToken);
+
+    if (iss !== JWT_ISSUER && sub !== JWT_REFRESH_SUBJECT) {
+      throw new UnauthorizedException('토큰이 위조되었습니다.');
+    }
+
+    return this.makeAccessToken(id);
+  }
+
+  public async verifyToken(token: string) {
     try {
       return this.jwtService.verify(token);
     } catch (error) {

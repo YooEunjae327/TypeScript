@@ -1,5 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { validationNullORundefined } from 'src/share/utils/validation.util';
 import { TokenService } from 'src/token/token.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { LoginDto } from './dto/login-user.dto';
@@ -15,14 +16,24 @@ export class UserService {
   ) {}
 
   async register(dto: CreateUserDto): Promise<void> {
+    console.log(dto);
     await this.userRepository.save(dto);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async login(dto: LoginDto): Promise<ILoginResponse> {
-    const user = 'test';
-    const token: string = this.tokenService.makeAccessToken('test');
-    const refreshToken: string = this.tokenService.makeRefreshToken('test');
+    const user: User | undefined = await this.userRepository.findOne({
+      id: dto.id,
+    });
+
+    if (validationNullORundefined(user)) {
+      throw new UnauthorizedException(
+        '아이디 또는 패스워드가 일치하지 않습니다.',
+      );
+    }
+
+    const token: string = this.tokenService.makeAccessToken(user.id);
+    const refreshToken: string = this.tokenService.makeRefreshToken(user.id);
 
     return {
       user,

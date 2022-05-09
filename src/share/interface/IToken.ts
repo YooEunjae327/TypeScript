@@ -1,5 +1,5 @@
 export interface IToken {
-  id: number;
+  id: string;
   iss: string;
   sub: string;
 }

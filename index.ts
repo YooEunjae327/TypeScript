@@ -1,15 +1,21 @@
-interface a {
-  name: string
+class a {
+  b: string;
+  c: string;
+  d: string;
 }
 
-interface b extends a {
-  age: 20
-}
+// interface a {
+//   name: string
+// }
 
-const c: b = {
-  name: 'hi',
-  age: 20,
-}
+// interface b extends a {
+//   age: 20
+// }
+
+// const c: b = {
+//   name: 'hi',
+//   age: 20,
+// }
 
 // // array
 // let a: string[] = ['kim', 'park']
@@ -33,5 +39,5 @@ const c: b = {
 // let hello = 'kim'
 // let age = 12
 
-console.log('sry')
-console.log('sry2')
+// console.log('sry')
+// console.log('sry2')

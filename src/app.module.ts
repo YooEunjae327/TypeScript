@@ -7,6 +7,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { TokenModule } from './token/token.module';
+import { getConnectionOptions } from 'typeorm';
 
 @Module({
   imports: [

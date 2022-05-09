@@ -1,8 +1,8 @@
-// import { User } from '../entity/users.entity';
+import { User } from '../entity/users.entity';
 
 export interface ILoginResponse {
-  // user: User;
-  user: string;
+  // user: string;
+  user: User;
   token: string;
   refreshToken: string;
 }
