@@ -32,7 +32,7 @@ export class TokenService {
 
     const option: JwtSignOptions = {
       // expiresIn: this.configService.get('JWT_ACCESS_EXPIRE'),
-      expiresIn: '60s',
+      expiresIn: '5s',
       issuer: JWT_ISSUER,
       subject: JWT_ACCESS_SUBJECT,
     };

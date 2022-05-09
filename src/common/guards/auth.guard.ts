@@ -1,22 +1,27 @@
-import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
-import { Observable } from 'rxjs';
-import { validationNullORundefined } from 'src/share/utils/validation.util';
-import { TokenService } from 'src/token/token.service';
-import { UserService } from 'src/users/users.service';
+import { Injectable } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
-  constructor(
-    private readonly userService: UserService,
-    private readonly tokenService: TokenService,
-  ) {}
+export class JwtAuthGuard extends AuthGuard('jwt') {}
 
-  public async canActivate(context: ExecutionContext): Promise<boolean> {
-    const req = context.switchToHttp().getRequest();
+// import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+// import { Observable } from 'rxjs';
+// import { validationNullORundefined } from 'src/share/utils/validation.util';
+// import { TokenService } from 'src/token/token.service';
+// import { UserService } from 'src/users/users.service';
 
-    const token: string = await req.headers['authorization'];
-    console.log(token);
+// @Injectable()
+// export class AuthGuard implements CanActivate {
+//   constructor(
+//     private readonly userService: UserService,
+//     private readonly tokenService: TokenService,
+//   ) {}
 
-    return true;
-  }
-}
+//   public async canActivate(context: ExecutionContext): Promise<boolean> {
+//     const req = context.switchToHttp().getRequest();
+
+//     console.log(req);
+
+//     return true;
+//   }
+// }
