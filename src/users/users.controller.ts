@@ -6,7 +6,7 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from 'src/common/guards/auth.guard';
+import { JwtAuthGuard } from 'src/common/guards/auth.guard';
 import dataResponse from 'src/common/response/dataResponse';
 import Response from 'src/common/response/response';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -32,7 +32,7 @@ export class UsersController {
     return dataResponse.dataSuccess('로그인 성공', loginRes);
   }
 
-  @UseGuards(AuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Get('/test')
   async test() {
     await this.userService.test();
