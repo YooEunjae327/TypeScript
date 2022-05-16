@@ -1,79 +1,18 @@
-/* eslint-disable @typescript-eslint/no-inferrable-types */
-// class a {
-//   a: any;
-//   constructor(a: string) {
-//     this.a = a;
-//   }
+class to {
+  a1: string;
+  a2: string;
+  name: string;
 
-//   prinitt() {
-//     console.log(this.a);
-//   }
-// }
+  constructor(a1: string, a2: string) {
+    this.a1 = a1;
+    this.a2 = a2;
+  }
 
-// const ab = new a('123');
+  print() {
+    console.log(this.a1, this.a2);
+  }
+}
 
-// ab.prinitt();
+to.prototype.name = '1';
 
-// eslint-disable-next-line @typescript-eslint/no-inferrable-types
-// eslint-disable-next-line prefer-const
-let a: string = '123';
-
-console.log(a);
-
-// class a {
-//   b: string;
-//   c: string;
-//   d: string;
-// }
-
-// interface a {s
-//   name: string
-// }
-
-// interface b extends a {
-//   age: 20
-// }
-
-// const c: b = {
-//   name: 'hi',
-//   age: 20,
-// }
-
-// // array
-// let a: string[] = ['kim', 'park']
-
-// // object
-// let b: { name?: string } = { name: 'kim' }
-
-// // Union type
-// let c: string | number = 123
-
-// // Type alias
-// type D1 = string | number
-
-// let d: D1 = 123
-
-// // function
-// function fuc(x: number): number {
-//   return x * 2
-// }
-
-// let hello = 'kim'
-// let age = 12
-
-// console.log('sry')
-// console.log('sry2')
-// console.log('sry3')
-// console.log('sry4')
-// console.log('sry5')
-
-// let a = {
-//   b: 1,
-//   c: 2,
-// };
-
-// for (const i in a) {
-//   a.b = 4;
-// }
-
-// console.log(a);
+console.log(to.prototype);
