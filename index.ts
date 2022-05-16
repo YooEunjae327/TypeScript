@@ -1,10 +1,32 @@
-class a {
-  b: string;
-  c: string;
-  d: string;
-}
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+// class a {
+//   a: any;
+//   constructor(a: string) {
+//     this.a = a;
+//   }
 
-// interface a {
+//   prinitt() {
+//     console.log(this.a);
+//   }
+// }
+
+// const ab = new a('123');
+
+// ab.prinitt();
+
+// eslint-disable-next-line @typescript-eslint/no-inferrable-types
+// eslint-disable-next-line prefer-const
+let a: string = '123';
+
+console.log(a);
+
+// class a {
+//   b: string;
+//   c: string;
+//   d: string;
+// }
+
+// interface a {s
 //   name: string
 // }
 
@@ -44,3 +66,14 @@ class a {
 // console.log('sry3')
 // console.log('sry4')
 // console.log('sry5')
+
+// let a = {
+//   b: 1,
+//   c: 2,
+// };
+
+// for (const i in a) {
+//   a.b = 4;
+// }
+
+// console.log(a);
