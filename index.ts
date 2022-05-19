@@ -13,3 +13,5 @@ class a {
 }
 
 console.log(a.success('sdsa'));
+
+console.error(e);
