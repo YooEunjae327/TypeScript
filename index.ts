@@ -17,3 +17,4 @@ console.log(a.success('sdsa'));
 console.error(e);
 console.lopg(e)
 console.log('sry')
+console.log('sryhihi')
