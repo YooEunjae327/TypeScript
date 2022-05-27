@@ -27,3 +27,5 @@ for (let i = 1; i <= 19; i++) {
     `insert into student(st_num, st_numc, st_class, st_number,st_name, st_address) values (210${i}, 2, 1, ${i}, "강보민", "대구");`,
   );
 }
+
+console.log("sry")
