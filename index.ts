@@ -28,11 +28,3 @@ for (let i = 1; i <= 19; i++) {
   );
 }
 
-console.log("sry")
-console.log("sry2")
-console.log("sry3")
-console.log("sry4")
-console.log("sry5")
-console.log("sry6")
-console.log("sry7")
-console.log("sry8")
